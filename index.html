@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -135,6 +134,96 @@
             color: #64ffda;
         }
 
+        /* Timeline / Career History */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #64ffda;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #64ffda;
+            border-radius: 50%;
+            top: 0;
+            right: -48px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -48px;
+        }
+
+        .timeline-content {
+            background: #112240;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .timeline-content h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .timeline-content h4 {
+            color: #ccd6f6;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: #8892b0;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .timeline-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .timeline-content ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-content ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+        }
+
         /* Sections */
         section {
             padding: 100px 0;
@@ -179,9 +268,16 @@
         .skill-items span {
             background-color: #233554;
             color: #64ffda;
-            padding: 5px 15px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-items span i {
+            font-size: 16px;
         }
 
         /* Projects Section */
@@ -273,6 +369,27 @@
             .social-links {
                 justify-content: center;
             }
+
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-dot {
+                left: 22px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 22px;
+            }
         }
     </style>
 </head>
@@ -283,6 +400,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#career">Career</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -303,7 +421,7 @@
                 </div>
             </div>
             <div class="profile-image" data-aos="fade-left" data-aos-delay="300">
-                <img src="profile.png" alt="Elilvannan Meganathan">
+                <img src="/path/to/your/image.jpg" alt="Elilvannan Meganathan">
             </div>
         </div>
     </section>
@@ -316,6 +434,47 @@
             </p>
         </div>
     </section>
+    <!-- Previous HTML remains same until skills section -->
+
+    <section id="career">
+        <div class="container">
+            <h2 data-aos="fade-up">Career History</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer</h3>
+                        <h4>Company Name</h4>
+                        <p class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2022 - Present
+                        </p>
+                        <ul>
+                            <li>Developed and maintained web applications</li>
+                            <li>Collaborated with cross-functional teams</li>
+                            <li>Implemented new features and optimizations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Developer</h3>
+                        <h4>Previous Company</h4>
+                        <p class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            2020 - 2022
+                        </p>
+                        <ul>
+                            <li>Assisted in web development projects</li>
+                            <li>Learned and implemented best practices</li>
+                            <li>Worked on bug fixes and improvements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="skills">
         <div class="container">
@@ -324,36 +483,35 @@
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                     <h3>Programming Languages</h3>
                     <div class="skill-items">
-                        <span>C</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Java</span>
-                        <span>JavaScript</span>
-                        <span>PHP</span>
-                        <span>Python</span>
+                        <span><i class="fas fa-code"></i>C</span>
+                        <span><i class="fab fa-html5"></i>HTML</span>
+                        <span><i class="fab fa-css3-alt"></i>CSS</span>
+                        <span><i class="fab fa-java"></i>Java</span>
+                        <span><i class="fab fa-js"></i>JavaScript</span>
+                        <span><i class="fab fa-php"></i>PHP</span>
+                        <span><i class="fab fa-python"></i>Python</span>
                     </div>
                 </div>
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
                     <h3>Frameworks</h3>
                     <div class="skill-items">
-                        <span>Codeigniter</span>
-                        <span>React.js</span>
-                        <span>Spring Boot</span>
-                        <span>Bootstrap</span>
+                        <span><i class="fab fa-php"></i>Codeigniter</span>
+                        <span><i class="fab fa-react"></i>React.js</span>
+                        <span><i class="fas fa-leaf"></i>Spring Boot</span>
+                        <span><i class="fab fa-bootstrap"></i>Bootstrap</span>
                     </div>
                 </div>
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
                     <h3>Database</h3>
                     <div class="skill-items">
-                        <span>SQL Server</span>
-                        <span>MySQL</span>
+                        <span><i class="fas fa-database"></i>SQL Server</span>
+                        <span><i class="fas fa-database"></i>MySQL</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="projects">
+  <section id="projects">
         <div class="container">
             <h2 data-aos="fade-up">Projects</h2>
             <div class="projects-grid">
